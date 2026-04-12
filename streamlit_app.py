@@ -1,31 +1,6 @@
 import streamlit as st
 from main import HashtagRecommender
 
-import nltk
-
-def download_nltk():
-    try:
-        nltk.data.find("tokenizers/punkt")
-    except LookupError:
-        nltk.download("punkt")
-
-    try:
-        nltk.data.find("corpora/stopwords")
-    except LookupError:
-        nltk.download("stopwords")
-
-    try:
-        nltk.data.find("corpora/wordnet")
-    except LookupError:
-        nltk.download("wordnet")
-
-    try:
-        nltk.data.find("taggers/averaged_perceptron_tagger")
-    except LookupError:
-        nltk.download("averaged_perceptron_tagger")
-
-download_nltk()
-
 st.set_page_config(
     page_title="Twitter Hashtag Recommender",
     page_icon="🏷️",
