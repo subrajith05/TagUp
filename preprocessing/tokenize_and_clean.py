@@ -1,9 +1,13 @@
 import nltk
 
-nltk.download('punkt', quiet=True)
-nltk.download('stopwords', quiet=True)
-nltk.download('wordnet', quiet=True)
-nltk.download('averaged_perceptron_tagger', quiet=True)
+for pkg in [
+    "punkt",
+    "punkt_tab",
+    "stopwords",
+    "wordnet",
+    "averaged_perceptron_tagger"
+]:
+    nltk.download(pkg, quiet=True)
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
