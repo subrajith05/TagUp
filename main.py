@@ -78,14 +78,3 @@ class HashtagRecommender:
         final = post_filter(ranked, top_k)
 
         return final
-
-
-if __name__ == "__main__":
-    model = HashtagRecommender("data/tweets.csv")
-
-    text = "MMessi delivers another masterclass as Barcelona dominates the Champions League match."
-
-    hashtags = model.recommend(text)
-
-    print("Input:", text)
-    print("Hashtags:", hashtags)
