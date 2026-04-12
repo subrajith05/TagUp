@@ -7,32 +7,38 @@ st.set_page_config(
     layout="centered"
 )
 
-# load model once
 @st.cache_resource
 def load_model():
     return HashtagRecommender("data/tweets.csv")
 
 model = load_model()
 
-st.title("🏷️ Twitter Hashtag Recommender")
+st.title("🏷️ TagUp - A Twitter Hashtag Recommender")
 st.write("Enter a tweet to generate relevant hashtags")
 
 text = st.text_area(
     "Tweet",
-    placeholder="Messi delivers another masterclass as Barcelona dominates the Champions League match."
+    placeholder="Enter your tweet..."
+)
+
+# USER SELECT K
+k = st.slider(
+    "Number of hashtags (K)",
+    min_value=1,
+    max_value=10,
+    value=5
 )
 
 if st.button("Generate Hashtags"):
 
     if text.strip():
 
-        hashtags = model.recommend(text)
+        tags = model.recommend(text, top_k=k)
 
         st.subheader("Suggested Hashtags")
 
-        # wrap layout
         tag_html = ""
-        for tag in hashtags:
+        for tag in tags:
             tag_html += f"""
             <span style="
                 display:inline-block;

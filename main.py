@@ -63,7 +63,7 @@ class HashtagRecommender:
             self.freq
         )
 
-        co_tags = infer_from_cooccurrence(tokens, self.word_tag_map, top_k=2)
+        co_tags = infer_from_cooccurrence(tokens, self.word_tag_map, top_k=int(top_k*0.4))
 
         ranked = rank_hashtags(
             candidates,
