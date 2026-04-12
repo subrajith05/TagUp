@@ -1,3 +1,7 @@
+gradio
 pandas
-re
+scikit-learn
 nltk
+yake
+numpy
+re
