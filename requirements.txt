@@ -1,7 +1,6 @@
-gradio
+streamlit
 pandas
 scikit-learn
 nltk
 yake
 numpy
-re
