@@ -1,14 +1,3 @@
-import nltk
-
-for pkg in [
-    "punkt",
-    "punkt_tab",
-    "stopwords",
-    "wordnet",
-    "averaged_perceptron_tagger"
-]:
-    nltk.download(pkg, quiet=True)
-
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
