@@ -2,6 +2,7 @@ from data.data_loader import load_dataset
 
 from preprocessing.dataset_processor import build_corpus
 from preprocessing.preprocess import preprocess
+from preprocessing.cecs import convert_casual
 
 from features.tfidf_vectorizer import build_tfidf
 from features.keyword_extractor import extract_keywords
@@ -39,6 +40,8 @@ class HashtagRecommender:
         self.word_tag_map = build_word_hashtag_map(df)
 
     def recommend(self, text, top_k=5):
+
+        text = convert_casual(text)
 
         tokens = preprocess(text)
 
